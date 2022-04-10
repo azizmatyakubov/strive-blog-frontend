@@ -101,6 +101,12 @@ const NewBlogPost = (props) => {
         {/* Text  */}
         <Form.Group controlId="blog-content" className="mt-3">
           <Form.Label>Blog Content</Form.Label>
+          <Form.Control
+            size="lg"
+            placeholder="Content"
+            value={text}
+            onChange={(event) => setText(event.target.value)}
+          />
         </Form.Group>
 
         {/* Buttons  */}

@@ -3,7 +3,6 @@ import { Col, Image, Row } from "react-bootstrap";
 import "./styles.css";
 
 const BlogAuthor = (props) => {
-  console.log("HERE --->", props);
   return (
     <Row>
       <Col xs={2}>

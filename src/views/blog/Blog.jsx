@@ -29,7 +29,13 @@ const Blog = (props) => {
     return (
       <div className="blog-details-root">
         <Container>
-          <Image className="blog-details-cover" src={blog.cover} fluid />
+          <Link to={`/new/${blog._id}/cover`}>
+            <Image
+              className="blog-details-cover"
+              src={blog.cover}
+              alt="Girl in a jacket"
+            />
+          </Link>
           <div className="blog-details-header">
             <h1 className="blog-details-title">{blog.title}</h1>
             <Link to={`/new/${blog._id}`}>

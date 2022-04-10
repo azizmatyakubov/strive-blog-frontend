@@ -4,15 +4,18 @@ import Footer from "./components/footer/Footer";
 import Home from "./views/home/Home";
 import Blog from "./views/blog/Blog";
 import NewBlogPost from "./views/new/New";
+import UploadCover from "./views/uploadCover/UploadCover";
 import { BrowserRouter as Router, Routes, Route, useParams } from "react-router-dom";
+
 
 function App() {
 
   const [posts, setPosts] = useState([]);
+  const params = useParams()
 
   useEffect(() => {
     fetchPosts();
-  }, []);
+  }, [params]);
 
   const fetchPosts = async () => {
     let res = await fetch("http://localhost:5000/blogPosts/", {
@@ -32,6 +35,7 @@ function App() {
         <Route path="/blog/:id" element={<Blog data={posts} />} />
         <Route path="/new" element={<NewBlogPost />} />
         <Route path="/new/:id" element={<NewBlogPost fetchPosts={fetchPosts} />} />
+        <Route path="/new/:id/cover" element={<UploadCover />} />
       </Routes>
       <Footer />
     </Router>
