@@ -9,7 +9,6 @@ import { BrowserRouter as Router, Routes, Route, useParams } from "react-router-
 
 
 function App() {
-
   const [posts, setPosts] = useState([]);
   const params = useParams()
 
@@ -18,7 +17,7 @@ function App() {
   }, [params]);
 
   const fetchPosts = async () => {
-    let res = await fetch("http://localhost:5000/blogPosts/", {
+    let res = await fetch("https://blog-api-strive.herokuapp.com/blogPosts", {
       method: "GET",
     });
     if (res.ok) {
