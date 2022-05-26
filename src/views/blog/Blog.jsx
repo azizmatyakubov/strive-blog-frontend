@@ -11,6 +11,7 @@ const Blog = (props) => {
   const params = useParams();
   const navigate = useNavigate();
   const data = props.data;
+  
   useEffect(() => {
     const { id } = params;
     const blog = data.find((post) => post._id.toString() === id);
@@ -22,6 +23,17 @@ const Blog = (props) => {
       navigate("/404");
     }
   }, [data]);
+
+  const download = async () => {
+    // try {
+    //   let res = await fetch("http://localhost:5000/blogPosts/downloadJson");
+    //   let data = await res.json();
+    //   console.log(data);
+    // } catch (error) {
+    //   console.log(error);
+    // }
+    console.log("wweccc");
+  };
 
   if (loading) {
     return <div>loading</div>;
@@ -41,6 +53,7 @@ const Blog = (props) => {
             <Link to={`/new/${blog._id}`}>
               <button className="btn btn-light">Edit</button>
             </Link>
+            <button onClick={() => download}>Download</button>
           </div>
           <div className="blog-details-container">
             <div className="blog-details-author">

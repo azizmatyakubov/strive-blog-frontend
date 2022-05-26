@@ -35,7 +35,7 @@ const NewBlogPost = (props) => {
   const submitHandler = async (e) => {
     e.preventDefault();
     try {
-      let res = await fetch("http://localhost:5000/blogPosts/", {
+      let res = await fetch("http://localhost:3001/blogPosts/", {
         method: "POST",
         body: JSON.stringify({ title: title, content: text }),
         headers: {
@@ -53,17 +53,20 @@ const NewBlogPost = (props) => {
   const editHandler = async (e) => {
     e.preventDefault();
     try {
-      let res = await fetch(`http://localhost:5000/blogPosts/${params.id}`, {
-        method: "PUT",
-        body: JSON.stringify({
-          title: title,
-          content: text,
-          category: category,
-        }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      let res = await fetch(
+        `https://blog-api-strive.herokuapp.com/blogPosts/${params.id}`,
+        {
+          method: "PUT",
+          body: JSON.stringify({
+            title: title,
+            content: text,
+            category: category,
+          }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
       if (res.ok) {
         console.log("new edited");
         props.fetchPosts();

@@ -18,3 +18,7 @@
   width: 160px;
   text-decoration: none;
 }
+
+.blog-navbar-logout-button {
+  margin-left: 2px;
+}
